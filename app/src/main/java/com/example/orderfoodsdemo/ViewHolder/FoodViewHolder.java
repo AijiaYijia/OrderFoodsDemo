@@ -9,18 +9,18 @@ import android.widget.TextView;
 import com.example.orderfoodsdemo.Interface.ItemClickListener;
 import com.example.orderfoodsdemo.R;
 
-public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView txtMenuName;
-    public ImageView imageView;
+    public TextView food_name;
+    public ImageView food_image;
 
     private ItemClickListener itemClickListener;
 
-    public MenuViewHolder(@NonNull View itemView) {
+    public FoodViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        txtMenuName = itemView.findViewById(R.id.menu_name);
-        imageView = itemView.findViewById(R.id.menu_image);
+        food_name = itemView.findViewById(R.id.food_name);
+        food_image = itemView.findViewById(R.id.food_image);
 
         itemView.setOnClickListener(this);
     }
