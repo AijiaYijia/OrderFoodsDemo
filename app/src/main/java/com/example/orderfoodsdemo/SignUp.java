@@ -19,7 +19,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class SignUp extends AppCompatActivity {
 
-    MaterialEditText edtPhone, edtName, edtPassword;
+    MaterialEditText edtPhone, edtName, edtPassword, edtSecureCode;
     Button btnSignUp;
 
     @Override
@@ -30,6 +30,7 @@ public class SignUp extends AppCompatActivity {
         edtPhone = findViewById(R.id.edtPhone);
         edtName = findViewById(R.id.edtName);
         edtPassword = findViewById(R.id.edtPassword);
+        edtSecureCode = findViewById(R.id.edtSecureCode);
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference("User");
@@ -58,7 +59,9 @@ public class SignUp extends AppCompatActivity {
 
                                 mDialog.dismiss();
 
-                                User user = new User(edtName.getText().toString(), edtPassword.getText().toString());
+                                User user = new User(edtName.getText().toString(),
+                                        edtPassword.getText().toString(),
+                                        edtSecureCode.getText().toString());
                                 table_user.child(edtPhone.getText().toString()).setValue(user);
 
                                 Toast.makeText(SignUp.this, "Sign up successfully", Toast.LENGTH_SHORT).show();
